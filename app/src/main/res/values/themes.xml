@@ -4,8 +4,6 @@
         <!-- Customize your light theme here. -->
         <!-- Override tint colors -->
         <item name="colorPrimary">@color/primary_light</item> <!-- your main accent -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-        <item name="buttonTint">@color/radiobutton_color</item>
     </style>
 
     <style name="Theme.ToDoList" parent="Base.Theme.ToDoList" />
