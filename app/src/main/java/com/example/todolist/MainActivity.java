@@ -1,5 +1,6 @@
 package com.example.todolist;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -44,6 +45,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
         showNotes();
+        buttonAddNote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = AddNoteActivity.newIntent(MainActivity.this);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initViews() {
@@ -53,10 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void showNotes() {
         for (Note note : notes) {
-            View view = getLayoutInflater().inflate(
-                    R.layout.note_item,
-                    linearLayoutNotes,
-                    false);
+            View view = getLayoutInflater().inflate(R.layout.note_item, linearLayoutNotes, false);
 
             TextView textViewNote = view.findViewById(R.id.textViewNote);
             textViewNote.setText(note.getText());
@@ -68,10 +73,10 @@ public class MainActivity extends AppCompatActivity {
                     colorResId = R.color.surface_default;
                     break;
                 case 1:
-                    colorResId = R.color.primary_main;
+                    colorResId = R.color.surface_uranian_blue;
                     break;
                 default:
-                    colorResId = R.color.secondary_main;
+                    colorResId = R.color.surface_tropical_indigo;
             }
 
             int color = ContextCompat.getColor(this, colorResId);
