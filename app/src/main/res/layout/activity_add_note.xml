@@ -44,7 +44,6 @@
             android:button="@null"
             android:text=""
             android:background="@color/surface_default"
-            android:buttonTint="@color/radiobutton_color"
             android:checked="true" />
 
         <RadioButton
@@ -53,8 +52,7 @@
             android:button="@null"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:background="@color/surface_tropical_indigo"
-            android:buttonTint="@color/radiobutton_color" />
+            android:background="@color/surface_tropical_indigo" />
 
         <RadioButton
             android:id="@+id/radioButtonBlue"
@@ -63,7 +61,7 @@
             android:layout_margin="15dp"
             android:button="@null"
             android:background="@color/surface_uranian_blue"
-            android:buttonTint="@color/radiobutton_color" />
+/>
 
     </RadioGroup>
 
