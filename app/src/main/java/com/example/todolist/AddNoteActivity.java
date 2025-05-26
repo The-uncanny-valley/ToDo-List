@@ -23,6 +23,8 @@ public class AddNoteActivity extends AppCompatActivity {
     private RadioButton radioButtonBlue;
     private Button buttonSave;
 
+    private Database database = new Database();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +56,12 @@ public class AddNoteActivity extends AppCompatActivity {
         String text = editTextNote.getText().toString().trim();
         if (text.isEmpty()) {
             Toast.makeText(this, "The field is empty", Toast.LENGTH_SHORT).show();
+        } else {
+            int id = database.getNotes().size();
+            Note note = new Note(id, text);
+            database.add(note);
+
+            finish();
         }
     }
 
