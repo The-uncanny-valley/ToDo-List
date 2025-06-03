@@ -3,12 +3,13 @@ package com.example.todolist;
 public class Note {
     private int id;
     private String text;
-    private int priority;
+    private String color;
+//    private int priority;
 
-    public Note(int id, String text, int priority) {
+    public Note(int id, String text, String color) {
         this.id = id;
         this.text = text;
-        this.priority = priority;
+        this.color = color;
     }
 
     public int getId() {
@@ -19,7 +20,7 @@ public class Note {
         return text;
     }
 
-    public int getPriority() {
-        return priority;
+    public String getColor() {
+        return color;
     }
 }

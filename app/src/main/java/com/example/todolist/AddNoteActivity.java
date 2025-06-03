@@ -54,11 +54,20 @@ public class AddNoteActivity extends AppCompatActivity {
 
     private void saveNote() {
         String text = editTextNote.getText().toString().trim();
+        String color;
+        if (radioButtonPink.isChecked()) {
+            color = "pink";
+        } else if (radioButtonPurple.isChecked()) {
+            color = "purple";
+        } else {
+            color = "blue";
+        }
+
         if (text.isEmpty()) {
             Toast.makeText(this, "The field is empty", Toast.LENGTH_SHORT).show();
         } else {
             int id = database.getNotes().size();
-            Note note = new Note(id, text);
+            Note note = new Note(id, text, color);
             database.add(note);
 
             finish();
