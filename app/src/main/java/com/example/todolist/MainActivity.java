@@ -1,5 +1,7 @@
 package com.example.todolist;
 
+import static android.os.Build.VERSION_CODES.R;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -38,9 +40,6 @@ public class MainActivity extends AppCompatActivity {
         });
         initViews();
 
-
-
-        showNotes();
         buttonAddNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,12 +49,19 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        showNotes();
+    }
+
     private void initViews() {
         linearLayoutNotes = findViewById(R.id.linearLayoutNotes);
         buttonAddNote = findViewById(R.id.buttonAddNote);
     }
 
     private void showNotes() {
+        linearLayoutNotes.removeAllViews();
         for (Note note : database.getNotes()) {
             View view = getLayoutInflater().inflate(R.layout.note_item, linearLayoutNotes, false);
 
@@ -64,7 +70,18 @@ public class MainActivity extends AppCompatActivity {
 
             int colorResId;
 
-//            switch (note.getPriority()) {
+            if (note.getColor().equals("pink")) {
+                colorResId = R.color.surface_default;
+            } else if (note.getColor().equals("blue")) {
+                colorResId = R.color.surface_uranian_blue;
+            } else {
+                colorResId = R.color.surface_tropical_indigo;
+            }
+
+            int color = ContextCompat.getColor(this, colorResId);
+            textViewNote.setBackgroundColor(color);
+
+//            switch (note.getColor()) {
 //                case 0:
 //                    colorResId = R.color.surface_default;
 //                    break;
